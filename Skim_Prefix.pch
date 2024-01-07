@@ -9,8 +9,7 @@
     #import "SKCompatibility.h"
     #import <tgmath.h>
 
-    #define __SKFILENAMEASNSSTRING \
-      [(NSString *)CFBridgingRelease(CFStringCreateWithFileSystemRepresentation(NULL, __FILE__)) lastPathComponent]
+    #define __SKFILENAMEASNSSTRING [[NSString stringWithFileSystemRepresentation:__FILE__] lastPathComponent]
 
     #if defined (DEBUG)
 
