@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSPoint)associatedPointForElementAtIndex:(NSUInteger)anIndex;
 
-@property (nonatomic, readonly) CGPathRef CGPath;
+@property (nonatomic, readonly) CGPathRef copyCGPath;
 
 - (void)halfEllipseFromPoint:(NSPoint)halfwayPoint toPoint:(NSPoint)endPoint;
 

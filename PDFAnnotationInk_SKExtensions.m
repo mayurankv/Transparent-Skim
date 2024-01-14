@@ -184,8 +184,11 @@ static CGAffineTransform (*CGContextGetBaseCTM_func)(CGContextRef) = NULL;
     r = fabs(CGSizeApplyAffineTransform(CGSizeMake(r, r), t).height);
     t = CGAffineTransformMakeTranslation(NSMinX(bounds), NSMinY(bounds));
     CGMutablePathRef path = CGPathCreateMutable();
-    for (NSBezierPath *aPath in [self paths])
-        CGPathAddPath(path, &t, [aPath CGPath]);
+    for (NSBezierPath *aPath in [self paths]) {
+        CGPathRef cgPath = [aPath copyCGPath];
+        CGPathAddPath(path, &t, cgPath);
+        CGPathRelease(cgPath);
+    }
     CGContextSaveGState(context);
     CGContextSetAlpha(context, [[self color] alphaComponent]);
     CGContextBeginTransparencyLayerWithRect(context, rect, NULL);

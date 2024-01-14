@@ -4387,6 +4387,7 @@ static inline CGFloat secondaryOutset(CGFloat x) {
     BOOL wasOption = NO;
     BOOL wantsBreak = isOption;
     NSBezierPath *bezierPath = nil;
+    CGPathRef cgPath = NULL;
     CAShapeLayer *layer = nil;
     NSRect boxBounds = NSIntersectionRect([page boundsForBox:[self displayBox]], [self convertRect:[self visibleContentRect] toPage:page]);
     CGAffineTransform t = CGAffineTransformRotate(CGAffineTransformMakeScale([self scaleFactor], [self scaleFactor]), -M_PI_2 * [page rotation] / 90.0);
@@ -4467,7 +4468,9 @@ static inline CGFloat secondaryOutset(CGFloat x) {
             wasOption = isOption;
             wantsBreak = NO;
             
-            [layer setPath:[bezierPath CGPath]];
+            cgPath = [bezierPath copyCGPath];
+            [layer setPath:cgPath];
+            CGPathRelease(cgPath);
             
         } else if ((([theEvent modifierFlags] & NSEventModifierFlagOption) != 0) != isOption) {
             

@@ -92,7 +92,7 @@
     return bounds;
 }
 
-- (CGPathRef)CGPath {
+- (CGPathRef)copyCGPath {
     CGMutablePathRef mutablePath = CGPathCreateMutable();
     NSInteger numElements = [self elementCount];
     NSPoint points[3];
@@ -118,7 +118,7 @@
     CGPathRef path = CGPathCreateCopy(mutablePath);
     CGPathRelease(mutablePath);
     
-    return (CGPathRef)CFAutorelease(path);
+    return path;
 }
 
 // distance ratio for control points to approximate a quarter ellipse by a cubic bezier curve

@@ -632,7 +632,7 @@ static inline CGRect scaleRect(NSRect rect, CGFloat scale) {
     
     CGRect bounds = {CGPointZero, [view drawableSize]};
     CIImage *img = image;
-    CGColorSpaceRef cs = [image colorSpace] ?: [(CIImage *)[filter valueForKey:kCIInputImageKey] colorSpace] ?: (CGColorSpaceRef)CFAutorelease(CGColorSpaceCreateDeviceRGB());
+    CGColorSpaceRef cs = CGColorSpaceRetain([image colorSpace]) ?: CGColorSpaceRetain([(CIImage *)[filter valueForKey:kCIInputImageKey] colorSpace]) ?: CGColorSpaceCreateDeviceRGB();
     
     if (CGRectEqualToRect(extent, bounds) == NO) {
         CGAffineTransform t = CGAffineTransformMakeScale(CGRectGetWidth(bounds) / CGRectGetWidth(extent), CGRectGetHeight(bounds) / CGRectGetHeight(extent));
@@ -641,6 +641,8 @@ static inline CGRect scaleRect(NSRect rect, CGFloat scale) {
     }
     
     [context render:img toMTLTexture:[drawable texture] commandBuffer:commandBuffer bounds:bounds colorSpace:cs];
+    
+    CGColorSpaceRelease(cs);
     
     [commandBuffer presentDrawable:drawable];
     [commandBuffer commit];
