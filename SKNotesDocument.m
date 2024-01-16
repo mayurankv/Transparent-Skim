@@ -99,6 +99,16 @@
 #define EXTRA_ROW_HEIGHT 2.0
 #define DEFAULT_TEXT_ROW_HEIGHT 85.0
 
+#if SDK_BEFORE_11_0
+@interface NSSearchToolbarItem : NSToolbarItem
+@property (strong) NSSearchField *searchField;
+@property BOOL resignsFirstResponderWithCancel;
+@property CGFloat preferredWidthForSearchField;
+- (void)beginSearchInteraction;
+- (void)endSearchInteraction;
+@end
+#endif
+
 @implementation SKNotesDocument
 
 @synthesize outlineView, statusBar, arrayController, searchField, notes, pdfDocument, sourceFileURL;
@@ -885,16 +895,25 @@
     
     // Add template toolbar items
     
-    item = [[SKToolbarItem alloc] initWithItemIdentifier:SKNotesDocumentSearchToolbarItemIdentifier];
-    [item setLabels:NSLocalizedString(@"Search", @"Toolbar item label")];
-    [item setToolTip:NSLocalizedString(@"Search Notes", @"Tool tip message")];
-    [item setView:searchField];
-    if (@available(macOS 11.0, *)) {} else {
+    if (@available(macOS 11.0, *)) {
+#if SDK_BEFORE_11_0
+        NSSearchToolbarItem *searchItem = [[NSClassFromString(@"NSSearchToolbarItem") alloc] initWithItemIdentifier:SKNotesDocumentSearchToolbarItemIdentifier];
+#else
+        NSSearchToolbarItem *searchItem = [[NSSearchToolbarItem alloc] initWithItemIdentifier:SKNotesDocumentSearchToolbarItemIdentifier];
+#endif
+        [searchItem setSearchField:searchField];
+        [searchItem setPreferredWidthForSearchField:300.0];
+        item = searchItem;
+    } else {
+        item = [[SKToolbarItem alloc] initWithItemIdentifier:SKNotesDocumentSearchToolbarItemIdentifier];
+        [item setView:searchField];
         NSSize size = [searchField frame].size;
         [item setMinSize:size];
         size.width = 240.0;
         [item setMaxSize:size];
     }
+    [item setLabels:NSLocalizedString(@"Search", @"Toolbar item label")];
+    [item setToolTip:NSLocalizedString(@"Search Notes", @"Tool tip message")];
     [dict setObject:item forKey:SKNotesDocumentSearchToolbarItemIdentifier];
     
     item = [[SKToolbarItem alloc] initWithItemIdentifier:SKNotesDocumentOpenPDFToolbarItemIdentifier];
