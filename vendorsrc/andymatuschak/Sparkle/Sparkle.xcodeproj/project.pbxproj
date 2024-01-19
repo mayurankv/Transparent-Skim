@@ -2974,6 +2974,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = SU;
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1400;
