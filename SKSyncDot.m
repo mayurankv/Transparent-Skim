@@ -42,7 +42,7 @@
 
 
 @interface SKSyncDot (SKPrivate)
-- (void)finish:(NSTimer *)aTimer;
+- (void)finish;
 - (void)animate;
 @end
 
@@ -59,7 +59,7 @@
         page = aPage;
         phase = 0;
         __weak SKSyncDot *weakSelf = self;
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 repeats:YES block:^(NSTimer *timer){ [weakSelf animate]; }];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 repeats:YES block:^(NSTimer *t){ [weakSelf animate]; }];
         handler = [aHandler copy];
     }
     return self;
@@ -69,7 +69,7 @@
     [timer invalidate];
 }
 
-- (void)finish:(NSTimer *)aTimer {
+- (void)finish {
     [timer invalidate];
     timer = nil;
     if (handler) {
@@ -81,7 +81,8 @@
 - (void)animate {
     if (atomic_fetch_add(&phase, 1) >= 9) {
         [timer invalidate];
-        timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(finish:) userInfo:NULL repeats:NO];
+        __weak SKSyncDot *weakSelf = self;
+        timer = [NSTimer scheduledTimerWithTimeInterval:5.0 repeats:NO block:^(NSTimer *t){ [weakSelf finish]; }];
     }
     if (handler) handler(NO);
 }
