@@ -2994,12 +2994,7 @@ enum { SKOptionAsk = -1, SKOptionNever = 0, SKOptionAlways = 1 };
     [self updateSnapshotsIfNeeded];
 }
 
-- (void)updateSnapshotsIfNeeded {
-    if ([rightSideController.snapshotTableView window] != nil && [dirtySnapshots count] > 0 && snapshotTimer == nil)
-        snapshotTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updateSnapshot:) userInfo:NULL repeats:YES];
-}
-
-- (void)updateSnapshot:(NSTimer *)timer {
+- (void)updateSnapshot {
     if ([dirtySnapshots count]) {
         SKSnapshotWindowController *controller = [dirtySnapshots objectAtIndex:0];
         NSSize newSize, oldSize = [[controller thumbnail] size];
@@ -3019,6 +3014,15 @@ enum { SKOptionAsk = -1, SKOptionNever = 0, SKOptionAlways = 1 };
     if ([dirtySnapshots count] == 0) {
         [snapshotTimer invalidate];
         snapshotTimer = nil;
+    }
+}
+
+- (void)updateSnapshotsIfNeeded {
+    if ([rightSideController.snapshotTableView window] != nil && [dirtySnapshots count] > 0 && snapshotTimer == nil) {
+        __weak SKMainWindowController *weakSelf = self;
+        snapshotTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 repeats:YES block:^(NSTimer *timer){
+            [weakSelf updateSnapshot];
+        }];
     }
 }
 

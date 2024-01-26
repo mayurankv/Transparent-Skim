@@ -111,7 +111,7 @@ static BOOL canUpdateFromURL(NSURL *fileURL);
     }
 }
 
-- (void)checkForFileReplacement:(NSTimer *)timer {
+- (void)checkForFileReplacement {
     if ([[[document fileURL] URLByResolvingSymlinksInPath] checkResourceIsReachableAndReturnError:NULL]) {
         // the deleted file was replaced at the old path, restart the file updating for the replacement file and note the update
         [self reset];
@@ -119,8 +119,11 @@ static BOOL canUpdateFromURL(NSURL *fileURL);
     }
 }
 
-- (void)startTimerWithSelector:(SEL)aSelector {
-    fileUpdateTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.1] interval:2.0 target:self selector:aSelector userInfo:nil repeats:YES];
+- (void)startTimerCheckingFileReplacement {
+    __weak SKFileUpdateChecker *weakSelf = self;
+    fileUpdateTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.1] interval:2.0 repeats:YES block:^(NSTimer *timer){
+        [weakSelf checkForFileReplacement];
+    }];
     [[NSRunLoop currentRunLoop] addTimer:fileUpdateTimer forMode:NSDefaultRunLoopMode];
 }
 
@@ -269,7 +272,7 @@ enum { SKFileUpdateOptionYes=NSAlertFirstButtonReturn, SKFileUpdateOptionNo=NSAl
     [self stop];
     fucFlags.fileChangedOnDisk = YES;
     // poll the (old) path to see whether the deleted file will be replaced
-    [self startTimerWithSelector:@selector(checkForFileReplacement:)];
+    [self startTimerCheckingFileReplacement];
 }
 
 - (void)setEnabled:(BOOL)flag {

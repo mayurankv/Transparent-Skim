@@ -318,7 +318,6 @@ enum {
 - (void)snapshotNeedsUpdate:(SKSnapshotWindowController *)dirstySnapshot;
 - (void)allSnapshotsNeedUpdate;
 - (void)updateSnapshotsIfNeeded;
-- (void)updateSnapshot:(NSTimer *)timer;
 
 - (void)setPdfDocument:(nullable PDFDocument *)pdfDocument addAnnotationsFromDictionaries:(nullable NSArray<NSDictionary<NSString *, id> *> *)noteDicts;
 - (void)addAnnotationsFromDictionaries:(NSArray<NSDictionary<NSString *, id> *> *)noteDicts removeAnnotations:(nullable NSArray<PDFAnnotation *> *)notesToRemove;

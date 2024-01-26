@@ -1099,7 +1099,7 @@ enum {
     }
 }
 
-- (void)pacerScroll:(NSTimer *)timer {
+- (void)pacerScroll {
     NSScrollView *scrollView = [self scrollView];
     NSClipView *clipView = [scrollView contentView];
     NSRect bounds = [clipView bounds];
@@ -1121,7 +1121,7 @@ enum {
         [clipView scrollToPoint:bounds.origin];
 }
 
-- (void)pacerMoveReadingBar:(NSTimer *)timer {
+- (void)pacerMoveReadingBar {
     [readingBar goToNextLine];
 }
 
@@ -1130,15 +1130,16 @@ enum {
         [self stopPacer];
     } else if (pacerSpeed > 0.0 && [[self document] isLocked] == NO) {
         CGFloat interval;
-        SEL selector;
+        __weak SKPDFView *weakSelf = self;
+        void (^block)(NSTimer *) = nil;
         if ([self hasReadingBar]) {
             interval = PACER_LINE_HEIGHT / pacerSpeed;
-            selector = @selector(pacerMoveReadingBar:);
+            block = ^(NSTimer *timer){ [weakSelf pacerMoveReadingBar]; };
         } else {
             interval = 1.0 / (pacerSpeed * [([self window] ?: (NSWindow *)[NSScreen mainScreen]) backingScaleFactor] * [self scaleFactor]);
-            selector = @selector(pacerScroll:);
+            block = ^(NSTimer *timer){ [weakSelf pacerScroll]; };
         }
-        pacerTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:selector userInfo:nil repeats:YES];
+        pacerTimer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:block];
         [[NSNotificationCenter defaultCenter] postNotificationName:SKPDFViewPacerStartedOrStoppedNotification object:self];
     }
 }
