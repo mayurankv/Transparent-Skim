@@ -118,7 +118,7 @@
 }
 
 - (void)setMainController:(SKMainWindowController *)newMainController {
-    if (mainController && newMainController == nil) {
+    if (newMainController == nil) {
         [snapshotTableView setDelegate:nil];
         [snapshotTableView setDataSource:nil];
         [noteOutlineView setDelegate:nil];

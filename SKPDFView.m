@@ -5344,7 +5344,7 @@ static inline NSCursor *resizeCursor(NSInteger angle, BOOL single) {
 }
 
 - (void)setDelegate:(id <SKPDFViewDelegate>)newDelegate {
-    if ([self delegate] && newDelegate == nil)
+    if (newDelegate == nil)
         [self cleanup];
     [super setDelegate:newDelegate];
 }

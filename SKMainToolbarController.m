@@ -141,7 +141,7 @@ static NSString *addNoteToolImageNames[] = {@"ToolbarAddTextNoteMenu", @"Toolbar
 }
 
 - (void)setMainController:(SKMainWindowController *)newMainController {
-    if (mainController != nil && newMainController == nil) {
+    if (newMainController == nil) {
         [colorSwatch unbind:@"colors"];
         [[NSNotificationCenter defaultCenter] removeObserver: self];
     }

@@ -103,7 +103,7 @@
 }
 
 - (void)setDelegate:(id <SKFindControllerDelegate>)newDelegate {
-    if (delegate && newDelegate == nil)
+    if (newDelegate == nil)
         [ownerController setContent:nil];
     delegate = newDelegate;
 }

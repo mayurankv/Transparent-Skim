@@ -148,7 +148,7 @@
 }
 
 - (void)setMainController:(SKMainWindowController *)newMainController {
-    if (mainController && newMainController == nil) {
+    if (newMainController == nil) {
         [thumbnailTableView setDelegate:nil];
         [thumbnailTableView setDataSource:nil];
         [findTableView setDelegate:nil];

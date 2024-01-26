@@ -90,16 +90,14 @@ static NSString *noteToolImageNames[] = {@"TouchBarTextNotePopover", @"TouchBarA
 @synthesize mainController;
 
 - (void)setMainController:(SKMainWindowController *)newMainController {
-    if (newMainController != mainController) {
-        if (mainController) {
-            [[NSNotificationCenter defaultCenter] removeObserver:self];
-            if (newMainController == nil)
-                [colorPicker setDelegate:nil];
-        }
-        mainController = newMainController;
-        if (mainController)
-            [self registerForNotifications];
+    if (mainController) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        if (newMainController == nil)
+            [colorPicker setDelegate:nil];
     }
+    mainController = newMainController;
+    if (mainController)
+        [self registerForNotifications];
 }
 
 - (NSTouchBar *)makeTouchBar {
