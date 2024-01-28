@@ -131,7 +131,7 @@ enum {
     
     SKProgressController                *progressController;
     
-    NSDocument                          *presentationNotesDocument;
+    __weak NSDocument                   *presentationNotesDocument;
     NSInteger                           presentationNotesOffset;
     SKSnapshotWindowController          *presentationPreview;
     NSButton                            *presentationNotesButton;
@@ -256,7 +256,7 @@ enum {
 
 @property (nonatomic, nullable, copy) NSDictionary<NSString *, id> *presentationOptions;
 
-@property (nonatomic, nullable, strong) NSDocument *presentationNotesDocument;
+@property (nonatomic, nullable, weak) NSDocument *presentationNotesDocument;
 @property (nonatomic) NSInteger presentationNotesOffset;
 
 @property (nonatomic, nullable, readonly) NSUndoManager *presentationUndoManager;
