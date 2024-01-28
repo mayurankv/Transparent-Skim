@@ -58,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, strong) IBOutlet NSTextField *messageField;
 @property (nonatomic, nullable, strong) IBOutlet NSButton *doneButton;
 @property (nonatomic, nullable, strong) IBOutlet NSSegmentedControl *navigationButton;
-@property (nonatomic, nullable, strong) IBOutlet NSObjectController *ownerController;
 @property (nonatomic, nullable, weak) id <SKFindControllerDelegate> delegate;
 @property (nonatomic, nullable, strong) NSString *findString;
 

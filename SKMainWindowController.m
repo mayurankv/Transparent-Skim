@@ -287,7 +287,7 @@ static char SKMainWindowContentLayoutObservationContext;
     [rightSideController setMainController:nil];
     [toolbarController setMainController:nil];
     [touchBarController setMainController:nil];
-    [findController setDelegate:nil]; // this breaks the retain loop from binding
+    [findController setDelegate:nil];
     [pdfView setDelegate:nil]; // this cleans up the pdfview
     [[pdfView document] setDelegate:nil];
     [noteTypeSheetController setDelegate:nil];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,6 @@
                 <outlet property="findField" destination="3" id="11"/>
                 <outlet property="messageField" destination="31" id="33"/>
                 <outlet property="navigationButton" destination="5" id="34"/>
-                <outlet property="ownerController" destination="18" id="23"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -34,9 +33,9 @@
                     </searchFieldCell>
                     <connections>
                         <action selector="find:" target="-2" id="30"/>
-                        <binding destination="18" name="value" keyPath="selection.findString" id="35">
+                        <binding destination="-2" name="value" keyPath="findString" id="5kD-h6-Ny3">
                             <dictionary key="options">
-                                <integer key="NSContinuouslyUpdatesValue" value="1"/>
+                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                             </dictionary>
                         </binding>
                         <outlet property="delegate" destination="-2" id="36"/>
@@ -91,14 +90,6 @@ Gw
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
-        <objectController id="18">
-            <declaredKeys>
-                <string>findString</string>
-            </declaredKeys>
-            <connections>
-                <outlet property="content" destination="-2" id="19"/>
-            </connections>
-        </objectController>
     </objects>
     <resources>
         <image name="NSGoLeftTemplate" width="10" height="14"/>

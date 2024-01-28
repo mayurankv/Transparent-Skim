@@ -48,7 +48,7 @@
 
 @implementation SKFindController
 
-@synthesize delegate, findField, messageField, doneButton, navigationButton, ownerController, findString;
+@synthesize delegate, findField, messageField, doneButton, navigationButton, findString;
 
 - (NSString *)nibName {
     return @"FindBar";
@@ -100,12 +100,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResignKey:) name:NSWindowDidResignKeyNotification object:window];
     [self windowDidBecomeKey:nil];
     [messageField setHidden:YES];
-}
-
-- (void)setDelegate:(id <SKFindControllerDelegate>)newDelegate {
-    if (newDelegate == nil)
-        [ownerController setContent:nil];
-    delegate = newDelegate;
 }
 
 - (void)setFindString:(NSString *)newFindString {
