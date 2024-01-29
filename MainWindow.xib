@@ -18,7 +18,6 @@
                 <outlet property="rightSideController" destination="1544" id="1546"/>
                 <outlet property="splitView" destination="1385" id="1448"/>
                 <outlet property="statusBar" destination="2Zw-iS-Qai" id="5oD-6z-7iD"/>
-                <outlet property="toolbarController" destination="1551" id="1553"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
         </customObject>
@@ -114,11 +113,6 @@
         <customObject id="1544" customClass="SKRightSideViewController">
             <connections>
                 <outlet property="mainController" destination="-2" id="1548"/>
-            </connections>
-        </customObject>
-        <customObject id="1551" customClass="SKMainToolbarController">
-            <connections>
-                <outlet property="mainController" destination="-2" id="1552"/>
             </connections>
         </customObject>
     </objects>

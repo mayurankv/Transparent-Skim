@@ -215,8 +215,6 @@ enum {
 @property (nonatomic, nullable, strong) IBOutlet SKLeftSideViewController *leftSideController;
 @property (nonatomic, nullable, strong) IBOutlet SKRightSideViewController *rightSideController;
     
-@property (nonatomic, nullable, strong) IBOutlet SKMainToolbarController *toolbarController;
-    
 @property (nonatomic, nullable, strong) IBOutlet NSView *leftSideContentView, *rightSideContentView;
 
 @property (nonatomic, nullable, readonly) NSString *searchString;
