@@ -248,8 +248,8 @@ enum {
 
 @implementation SKPDFView
 
-@synthesize toolMode, annotationMode, temporaryToolMode, interactionMode, currentAnnotation, readingBar, pacerSpeed, transitionController, typeSelectHelper, syncDot, zooming;
-@dynamic extendedDisplayMode, displaysHorizontally, hideNotes, canSelectNote, hasReadingBar, hasPacer, currentSelectionPage, currentSelectionRect, currentMagnification, needsRewind, editing;
+@synthesize toolMode, annotationMode, temporaryToolMode, interactionMode, currentAnnotation, readingBar, pacerSpeed, transitionController, typeSelectHelper, syncDot;
+@dynamic extendedDisplayMode, displaysHorizontally, hideNotes, canSelectNote, hasReadingBar, hasPacer, currentSelectionPage, currentSelectionRect, currentMagnification, needsRewind, editing, zooming;
 
 + (void)initialize {
     SKINITIALIZE;
@@ -721,6 +721,10 @@ enum {
 
 - (BOOL)isEditing {
     return editor != nil;
+}
+
+- (BOOL)isZooming {
+    return pdfvFlags.zooming;
 }
 
 - (void)setDisplayMode:(PDFDisplayMode)mode {
@@ -1489,21 +1493,21 @@ enum {
 }
 
 - (void)zoomIn:(id)sender {
-    zooming = YES;
+    pdfvFlags.zooming = YES;
     [super zoomIn:sender];
-    zooming = NO;
+    pdfvFlags.zooming = NO;
 }
 
 - (void)zoomOut:(id)sender {
-    zooming = YES;
+    pdfvFlags.zooming = YES;
     [super zoomOut:sender];
-    zooming = NO;
+    pdfvFlags.zooming = NO;
 }
 
 - (void)setScaleFactor:(CGFloat)scale {
-    zooming = YES;
+    pdfvFlags.zooming = YES;
     [super setScaleFactor:scale];
-    zooming = NO;
+    pdfvFlags.zooming = NO;
 }
 
 - (void)zoomToPhysicalSize:(id)sender {

@@ -185,6 +185,7 @@ enum {
         unsigned int useArrowCursorInPresentation:1;
         unsigned int removeLaserPointerShadow:1;
         unsigned int drawInPresentation:1;
+        unsigned int zooming:1;
     } pdfvFlags;
 }
 
