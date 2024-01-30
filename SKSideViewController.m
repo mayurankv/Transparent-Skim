@@ -96,7 +96,6 @@
     BOOL changeButton = wasAlternate != isAlternate;
     NSSegmentedControl *oldButton = wasAlternate ? alternateButton : button;
     NSSegmentedControl *newButton = isAlternate ? alternateButton : button;
-    NSView *buttonView = [oldButton superview];
     NSView *contentView = [oldView superview];
     id firstResponder = [[oldView window] firstResponder];
     
@@ -128,26 +127,6 @@
     } else {
         isAnimating = YES;
         
-        BOOL hasLayer = YES;
-        
-        if (@available(macOS 10.14, *)) {
-            hasLayer = [[self view] wantsLayer] || [[self view] layer] != nil;
-            if (hasLayer == NO) {
-                [[self view] setWantsLayer:YES];
-                [[self view] displayIfNeeded];
-            }
-        } else {
-            hasLayer = [contentView wantsLayer] || [contentView layer] != nil;
-            if (hasLayer == NO) {
-                [contentView setWantsLayer:YES];
-                [contentView displayIfNeeded];
-                if (changeButton) {
-                    [buttonView setWantsLayer:YES];
-                    [buttonView displayIfNeeded];
-                }
-            }
-        }
-        
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context){
                 [context setDuration:DURATION]; 
                 [[contentView animator] replaceSubview:oldView with:newView];
@@ -158,15 +137,6 @@
                 }
             }
             completionHandler:^{
-                if (hasLayer == NO) {
-                    if (@available(macOS 10.14, *)) {
-                        [[self view] setWantsLayer:NO];
-                    } else {
-                        [contentView setWantsLayer:NO];
-                        if (changeButton)
-                            [buttonView setWantsLayer:NO];
-                    }
-                }
                 [[firstResponder window] makeFirstResponder:firstResponder];
                 [[contentView window] recalculateKeyViewLoop];
                 isAnimating = NO;

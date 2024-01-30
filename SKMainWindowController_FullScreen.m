@@ -294,6 +294,7 @@ static inline BOOL insufficientScreenSize(NSValue *value) {
     
     [mainWindow setDelegate:nil];
     [self setWindow:fullScreenWindow];
+    [[fullScreenWindow contentView] setWantsLayer:YES];
     [fullScreenWindow setAlphaValue:0.0];
     [fullScreenWindow orderFront:nil];
     [fullScreenWindow makeKeyWindow];

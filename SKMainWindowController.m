@@ -341,6 +341,9 @@ static char SKMainWindowContentLayoutObservationContext;
     if (@available(macOS 11.0, *))
         [window setToolbarStyle:NSWindowToolbarStyleExpanded];
     
+    // for animations
+    [[window contentView] setWantsLayer:YES];
+    
     if (mwcFlags.fullSizeContent) {
         titleBarHeight = NSHeight([window frame]) - NSHeight([window contentLayoutRect]);
         [leftSideController setTopInset:titleBarHeight];
@@ -1576,19 +1579,12 @@ static char SKMainWindowContentLayoutObservationContext;
     [[SKImageToolTipWindow sharedToolTipWindow] orderOut:nil];
     
     if (animate) {
-        BOOL hasLayer = [contentView wantsLayer] || [contentView layer] != nil;
-        if (hasLayer == NO) {
-            [contentView setWantsLayer:YES];
-            [contentView displayIfNeeded];
-        }
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext * context){
                 [[contentView animator] replaceSubview:oldView with:overviewContentView];
                 [NSLayoutConstraint activateConstraints:constraints];
             }
             completionHandler:^{
                 [touchBarController overviewChanged];
-                if (hasLayer == NO)
-                    [contentView setWantsLayer:NO];
             }];
     } else {
         [contentView replaceSubview:oldView with:overviewContentView];
@@ -1621,11 +1617,6 @@ static char SKMainWindowContentLayoutObservationContext;
         [NSLayoutConstraint constraintWithItem:hasStatus ? statusBar : contentView attribute:hasStatus ? NSLayoutAttributeTop : NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:newView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
     
     if (animate) {
-        BOOL hasLayer = [contentView wantsLayer] || [contentView layer] != nil;
-        if (hasLayer == NO) {
-            [contentView setWantsLayer:YES];
-            [contentView displayIfNeeded];
-        }
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context){
                 [[contentView animator] replaceSubview:overviewContentView with:newView];
                 [NSLayoutConstraint activateConstraints:constraints];
@@ -1634,8 +1625,6 @@ static char SKMainWindowContentLayoutObservationContext;
                 [touchBarController overviewChanged];
                 if ([pdfView window] == [self window])
                     [[self window] makeFirstResponder:pdfView];
-                if (hasLayer == NO)
-                    [contentView setWantsLayer:NO];
                 if (handler)
                     handler();
             }];
