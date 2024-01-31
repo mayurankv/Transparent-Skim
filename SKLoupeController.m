@@ -88,7 +88,6 @@
     [layer setCornerRadius:LOUPE_RADIUS];
     [layer setMasksToBounds:YES];
     [layer setActions:@{@"contents":[NSNull null]}];
-    [layer setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
     [layer setFrame:NSRectToCGRect([pdfView bounds])];
     if (@available(macOS 10.14, *)) {} else {
         CGColorRef borderColor = CGColorCreateGenericGray(LOUPE_BORDER_GRAY, 1.0);
@@ -99,9 +98,8 @@
     [layer setDelegate:self];
     
     window = [[SKAnimatedBorderlessWindow alloc] initWithContentRect:[pdfView convertRectToScreen:[pdfView bounds]]];
+    [[window contentView] setLayer:layer];
     [[window contentView] setWantsLayer:YES];
-    [[[window contentView] layer] addSublayer:layer];
-    [layer setContentsScale:[[[window contentView] layer] contentsScale]];
     [window setHasShadow:YES];
     [self updateColorFilters];
 }
@@ -323,6 +321,12 @@ static inline CGRect SKPixelAlignedRect(CGRect rect, CGFloat scale) {
     
     CGColorRelease(shadowColor);
     CGColorRelease(borderColor);
+}
+
+- (BOOL)layer:(CALayer *)aLayer
+shouldInheritContentsScale:(CGFloat)newScale
+   fromWindow:(NSWindow *)window {
+    return YES;
 }
 
 @end
