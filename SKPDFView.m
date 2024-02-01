@@ -314,8 +314,6 @@ enum {
     gestureRotation = 0.0;
     gesturePageIndex = NSNotFound;
     
-    [self setEnableDataDetectors:NO];
-    
     NSTrackingAreaOptions options = NSTrackingMouseMoved | NSTrackingMouseEnteredAndExited;
     for (NSTrackingArea *area in [self trackingAreas]) {
         if (([area options] & NSTrackingInVisibleRect))
