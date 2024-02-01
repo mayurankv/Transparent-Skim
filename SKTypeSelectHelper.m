@@ -62,7 +62,7 @@
 - (NSArray *)searchCache;
 - (void)searchWithStickyMatch:(BOOL)allowUpdate;
 - (void)stopTimer;
-- (void)startTimerWithBlock:(void (^)(NSTimer *timer))block;
+- (void)startTimerWithBlock:(void (^)(NSTimer *aTimer))block;
 - (void)typeSelectSearchTimeout:(id)sender;
 - (void)typeSelectCleanTimeout:(id)sender;
 - (NSUInteger)indexOfMatchedItemAfterIndex:(NSUInteger)selectedIndex;
@@ -208,7 +208,7 @@ static NSCharacterSet *nonAlphanumericCharacterSet = nil;
     
     // Reset the timer if it hasn't expired yet
     __weak SKTypeSelectHelper *weakSelf = self;
-    [self startTimerWithBlock:^(NSTimer *timer){ [weakSelf typeSelectSearchTimeout:timer]; }];
+    [self startTimerWithBlock:^(NSTimer *aTimer){ [weakSelf typeSelectSearchTimeout:aTimer]; }];
     
     if (matchOption != SKFullStringMatch)
         [self searchWithStickyMatch:isProcessing];
@@ -223,7 +223,7 @@ static NSCharacterSet *nonAlphanumericCharacterSet = nil;
         [self updateSearchString:searchString];
     
     __weak SKTypeSelectHelper *weakSelf = self;
-    [self startTimerWithBlock:^(NSTimer *timer){ [weakSelf typeSelectCleanTimeout:timer]; }];
+    [self startTimerWithBlock:^(NSTimer *aTimer){ [weakSelf typeSelectCleanTimeout:timer]; }];
     
     isProcessing = NO;
 }
@@ -270,7 +270,7 @@ static NSCharacterSet *nonAlphanumericCharacterSet = nil;
     timer = nil;
 }
 
-- (void)startTimerWithBlock:(void (^)(NSTimer *timer))block {
+- (void)startTimerWithBlock:(void (^)(NSTimer *aTimer))block {
     [self stopTimer];
     timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:[self timeoutInterval]] interval:0 repeats:NO block:block];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
