@@ -232,7 +232,6 @@
 		CEAE1C480CA1877F00849B0F /* SKSecondaryPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAE1C460CA1877F00849B0F /* SKSecondaryPDFView.m */; };
 		CEAE1CA0287C7C39003A77DB /* SKGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAE1C9F287C7C39003A77DB /* SKGroupView.m */; };
 		CEAF079D0C4139EB00C3ECBB /* SKStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF079B0C4139EB00C3ECBB /* SKStatusBar.m */; };
-		CEB34A530F5C1B7E0037E086 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = CEB34A520F5C1B7E0037E086 /* dsa_pub.pem */; };
 		CEB402C313EDAD6100851D1B /* SKTemporaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB402C213EDAD6100851D1B /* SKTemporaryData.m */; };
 		CEB735A20C4A8CD6000350F9 /* TransitionShading.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CEB735A10C4A8CD6000350F9 /* TransitionShading.tiff */; };
 		CEBC0DDD2791C607008686E8 /* NSObject_SKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBC0DDC2791C607008686E8 /* NSObject_SKExtensions.m */; };
@@ -1138,7 +1137,6 @@
 		CEAE1C9F287C7C39003A77DB /* SKGroupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKGroupView.m; sourceTree = "<group>"; };
 		CEAF079A0C4139EB00C3ECBB /* SKStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStatusBar.h; sourceTree = "<group>"; };
 		CEAF079B0C4139EB00C3ECBB /* SKStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKStatusBar.m; sourceTree = "<group>"; };
-		CEB34A520F5C1B7E0037E086 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		CEB402C113EDAD6100851D1B /* SKTemporaryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTemporaryData.h; sourceTree = "<group>"; };
 		CEB402C213EDAD6100851D1B /* SKTemporaryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTemporaryData.m; sourceTree = "<group>"; };
 		CEB53FF20F261D1400723C1F /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = zh_TW; path = zh_TW.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -1549,7 +1547,6 @@
 				CE67BB240BC44AC9007B6929 /* ZoomValues.strings */,
 				45A3BD380B4F097D002B297F /* InitialUserDefaults.plist */,
 				CE41A6CB0B975E5000ECF819 /* Skim.sdef */,
-				CEB34A520F5C1B7E0037E086 /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2322,7 +2319,6 @@
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
 				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Skim" */;
@@ -2599,7 +2595,6 @@
 				CEB735A20C4A8CD6000350F9 /* TransitionShading.tiff in Resources */,
 				CE898F060C843A8B008A0856 /* PDFDDocument.icns in Resources */,
 				CE6DC9940D699F21003A072F /* TransitionMask.jpg in Resources */,
-				CEB34A530F5C1B7E0037E086 /* dsa_pub.pem in Resources */,
 				CE67C4812624C691007D4437 /* BookmarksWindow.xib in Resources */,
 				CE67C4CE2624C735007D4437 /* ViewSettings.xib in Resources */,
 				CE19446410627483007E8770 /* ConversionProgressWindow.xib in Resources */,
