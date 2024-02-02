@@ -416,7 +416,7 @@ def signature_and_size(archive_path):
             # now compute the variables we need for writing the new appcast
             dsaSignature = b64_task.communicate()[0].decode("ascii").strip()
             if dsaSignature != "":
-                signatureAndSize = " sparkle:dsaSignature=\"" + dsaSignature + "\" " + signatureAndSize
+                signatureAndSize = "sparkle:dsaSignature=\"" + dsaSignature + "\" " + signatureAndSize
     
     return signatureAndSize
     
