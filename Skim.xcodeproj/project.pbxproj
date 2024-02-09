@@ -35,6 +35,7 @@
 		8D15AC310486D014006FF6A4 /* SKMainDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* SKMainDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		C974C35B2B76B8EE00043423 /* MVVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974C35A2B76B8EE00043423 /* MVVisualEffectView.m */; };
 		CE017E812B2623A800F5FC1E /* NSPointerFunctions_SKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE017E802B2623A800F5FC1E /* NSPointerFunctions_SKExtensions.m */; };
 		CE030C6113C07A57007A47E9 /* PDFView_SKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE030C6013C07A57007A47E9 /* PDFView_SKExtensions.m */; };
 		CE042E2325F6893F00279FA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE042E2225F6893F00279FA5 /* Assets.xcassets */; };
@@ -654,6 +655,8 @@
 		45B113BF0B329A7E00DE0660 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Skim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C974C3592B76B8EE00043423 /* MVVisualEffectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVisualEffectView.h; sourceTree = "<group>"; };
+		C974C35A2B76B8EE00043423 /* MVVisualEffectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVisualEffectView.m; sourceTree = "<group>"; };
 		CE017E7F2B2623A800F5FC1E /* NSPointerFunctions_SKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPointerFunctions_SKExtensions.h; sourceTree = "<group>"; };
 		CE017E802B2623A800F5FC1E /* NSPointerFunctions_SKExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSPointerFunctions_SKExtensions.m; sourceTree = "<group>"; };
 		CE030C5F13C07A57007A47E9 /* PDFView_SKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFView_SKExtensions.h; sourceTree = "<group>"; };
@@ -1842,6 +1845,8 @@
 				CE4EBDD90B7BF3B30091F228 /* SKSideWindow.m */,
 				CE19641316E811D40027E2CF /* SKSnapshotWindow.h */,
 				CE19641416E811D40027E2CF /* SKSnapshotWindow.m */,
+				C974C3592B76B8EE00043423 /* MVVisualEffectView.h */,
+				C974C35A2B76B8EE00043423 /* MVVisualEffectView.m */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -2898,6 +2903,7 @@
 				CEE7E77824426C180034690E /* PDFAnnotationButtonWidget_SKExtensions.m in Sources */,
 				CEE176E40DBD5B0C00E6C317 /* PDFDocumentView_SKExtensions.m in Sources */,
 				CECB03D30DC7503A0000B16B /* SKGroupedSearchResult.m in Sources */,
+				C974C35B2B76B8EE00043423 /* MVVisualEffectView.m in Sources */,
 				CEEC0A0A0DCB2594003DD9B6 /* SKMainWindowController_UI.m in Sources */,
 				CE0EB4D60DD054DC0034DF92 /* NSInvocation_SKExtensions.m in Sources */,
 				CE7F43910DE1F1980061A839 /* NSUserDefaults_SKExtensions.m in Sources */,
