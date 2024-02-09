@@ -27,7 +27,7 @@
 
 - (void)setupView {
     self.state = NSVisualEffectStateActive;
-    self.material =NSVisualEffectMaterialFullScreenUI;
+    self.material = NSVisualEffectMaterialFullScreenUI;
     self.blendingMode = NSVisualEffectBlendingModeBehindWindow;
     self.alphaValue = 1.0;
     self.layer.cornerRadius = 16.0;
