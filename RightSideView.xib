@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,22 +21,22 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4" userLabel="RightSideView">
+        <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4" userLabel="RightSideView">
             <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="18">
+                <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18" customClass="MVVisualEffectView">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="364"/>
                     <subviews>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26">
+                        <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26" customClass="MVVisualEffectView">
                             <rect key="frame" x="-1" y="-1" width="202" height="366"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                     </subviews>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="19" customClass="SKTopBarView">
+                <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19" customClass="SKTopBarView">
                     <rect key="frame" x="0.0" y="364" width="200" height="36"/>
                     <subviews>
-                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="23">
+                        <segmentedControl wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="23">
                             <rect key="frame" x="8" y="6" width="59" height="24"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="texturedRounded" trackingMode="selectOne" id="24">
                                 <font key="font" metaFont="system"/>
@@ -49,7 +49,7 @@
                                 <binding destination="3" name="selectedTag" keyPath="selection.rightSidePaneState" id="43"/>
                             </connections>
                         </segmentedControl>
-                        <searchField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                        <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22">
                             <rect key="frame" x="73" y="7" width="119" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="m7g-Zf-h34"/>
@@ -82,21 +82,21 @@
             </constraints>
             <point key="canvasLocation" x="267" y="154"/>
         </customView>
-        <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27" customClass="SKScrollView">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="403"/>
-            <clipView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-FC-sTQ">
-                <rect key="frame" x="1" y="1" width="198" height="401"/>
+        <scrollView wantsLayer="YES" focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="401"/>
+            <clipView key="contentView" wantsLayer="YES" drawsBackground="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-FC-sTQ">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="401"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <outlineView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" typeSelect="NO" autosaveName="SKNoteOutlineView" headerView="28" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="16" outlineTableColumn="35" id="31" customClass="SKNoteOutlineView">
-                        <rect key="frame" x="0.0" y="0.0" width="198" height="376"/>
+                    <outlineView wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" typeSelect="NO" autosaveName="SKNoteOutlineView" headerView="28" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="16" outlineTableColumn="35" id="31" customClass="SKNoteOutlineView">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="376"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="373" placeholder="YES" id="cke-u9-n2p"/>
                         </constraints>
                         <size key="intercellSpacing" width="3" height="2"/>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.17649999259999999" green="0.17649999259999999" blue="0.17649999259999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="gridColor" red="0.17649999259999999" green="0.17649999259999999" blue="0.17649999259999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <tableColumns>
                             <tableColumn identifier="note" width="88" minWidth="33" maxWidth="1000" id="35">
                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
@@ -106,15 +106,15 @@
                                 <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="36">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textFieldCell>
                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                 <prototypeCellViews>
-                                    <tableCellView id="ZGN-Pg-55C" customClass="SKNoteTableCellView">
+                                    <tableCellView wantsLayer="YES" id="ZGN-Pg-55C" customClass="SKNoteTableCellView">
                                         <rect key="frame" x="11" y="1" width="93" height="15"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" preferredMaxLayoutWidth="122" translatesAutoresizingMaskIntoConstraints="NO" id="T6H-tX-biW">
+                                            <textField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" preferredMaxLayoutWidth="122" translatesAutoresizingMaskIntoConstraints="NO" id="T6H-tX-biW">
                                                 <rect key="frame" x="0.0" y="0.0" width="93" height="15"/>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" id="UPF-5H-Pgd">
                                                     <font key="font" metaFont="cellTitle"/>
@@ -122,15 +122,15 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
-                                                    <binding destination="ZGN-Pg-55C" name="editable" keyPath="objectValue.type" id="d6c-t3-IzB">
-                                                        <dictionary key="options">
-                                                            <string key="NSValueTransformerName">NSIsNotNil</string>
-                                                        </dictionary>
-                                                    </binding>
-                                                    <binding destination="ZGN-Pg-55C" name="toolTip" keyPath="objectValue.string" id="R78-BC-j6A"/>
                                                     <binding destination="ZGN-Pg-55C" name="value" keyPath="objectValue.objectValue" id="Dhp-4I-hEo">
                                                         <dictionary key="options">
                                                             <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                        </dictionary>
+                                                    </binding>
+                                                    <binding destination="ZGN-Pg-55C" name="toolTip" keyPath="objectValue.string" id="R78-BC-j6A"/>
+                                                    <binding destination="ZGN-Pg-55C" name="editable" keyPath="objectValue.type" id="d6c-t3-IzB">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSIsNotNil</string>
                                                         </dictionary>
                                                     </binding>
                                                 </connections>
@@ -146,7 +146,7 @@
                                             <outlet property="textField" destination="T6H-tX-biW" id="2xe-tZ-MEc"/>
                                         </connections>
                                     </tableCellView>
-                                    <customView identifier="row" translatesAutoresizingMaskIntoConstraints="NO" id="84k-Om-OZ4" customClass="SKNoteTableRowView">
+                                    <customView identifier="row" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84k-Om-OZ4" customClass="SKNoteTableRowView">
                                         <rect key="frame" x="11" y="18" width="93" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </customView>
@@ -159,11 +159,11 @@
                                 </tableHeaderCell>
                                 <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" animates="YES" id="38" customClass="SKAnnotationTypeImageCell"/>
                                 <prototypeCellViews>
-                                    <tableCellView id="dka-Zp-1o0">
+                                    <tableCellView wantsLayer="YES" id="dka-Zp-1o0">
                                         <rect key="frame" x="107" y="1" width="21" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Wy1-6F-s9I" customClass="SKAnnotationTypeImageView">
+                                            <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Wy1-6F-s9I" customClass="SKAnnotationTypeImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="21" height="17"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="LFV-f2-5e3" customClass="SKAnnotationTypeImageCell"/>
                                                 <connections>
@@ -198,11 +198,11 @@
                                     <font key="font" metaFont="system"/>
                                 </customCell>
                                 <prototypeCellViews>
-                                    <tableCellView id="qmc-ew-Bi0">
+                                    <tableCellView wantsLayer="YES" id="qmc-ew-Bi0">
                                         <rect key="frame" x="1" y="1" width="0.0" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bUx-hD-kOV" customClass="SKColorView">
+                                            <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bUx-hD-kOV" customClass="SKColorView">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="zeE-gx-yVa" customClass="SKColorCell"/>
                                                 <connections>
@@ -230,19 +230,19 @@
                                 <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="left" id="37">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textFieldCell>
                                 <prototypeCellViews>
-                                    <tableCellView id="rnK-rN-FoS">
+                                    <tableCellView wantsLayer="YES" id="rnK-rN-FoS">
                                         <rect key="frame" x="131" y="1" width="46" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-OP-ap6">
+                                            <textField wantsLayer="YES" focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-OP-ap6">
                                                 <rect key="frame" x="0.0" y="1" width="46" height="15"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" id="Abp-DN-Ahr">
                                                     <font key="font" metaFont="cellTitle"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </textFieldCell>
                                                 <connections>
                                                     <binding destination="rnK-rN-FoS" name="value" keyPath="objectValue.page.displayLabel" id="dzi-bo-zsV"/>
@@ -268,20 +268,20 @@
                                 <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="66">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textFieldCell>
                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                 <prototypeCellViews>
-                                    <tableCellView id="I4N-kX-XRY">
+                                    <tableCellView wantsLayer="YES" id="I4N-kX-XRY">
                                         <rect key="frame" x="1" y="1" width="0.0" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-Ik-oBo">
+                                            <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-Ik-oBo">
                                                 <rect key="frame" x="0.0" y="1" width="4" height="15"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" id="xpD-hJ-5U5">
                                                     <font key="font" metaFont="cellTitle"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </textFieldCell>
                                                 <connections>
                                                     <binding destination="I4N-kX-XRY" name="value" keyPath="objectValue.userName" id="wY0-NB-x0w"/>
@@ -308,21 +308,21 @@
                                     <dateFormatter key="formatter" dateStyle="short" id="69"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textFieldCell>
                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                 <prototypeCellViews>
-                                    <tableCellView id="pRJ-Qg-L6f">
+                                    <tableCellView wantsLayer="YES" id="pRJ-Qg-L6f">
                                         <rect key="frame" x="1" y="1" width="0.0" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-ix-es0">
+                                            <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-ix-es0">
                                                 <rect key="frame" x="0.0" y="1" width="4" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" id="1iT-jN-4HR">
                                                     <dateFormatter key="formatter" dateStyle="short" id="Gub-Cr-3E8"/>
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </textFieldCell>
                                                 <connections>
                                                     <binding destination="pRJ-Qg-L6f" name="value" keyPath="objectValue.modificationDate" id="iSA-fJ-8ja"/>
@@ -346,6 +346,7 @@
                         </connections>
                     </outlineView>
                 </subviews>
+                <nil key="backgroundColor"/>
             </clipView>
             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="29">
                 <rect key="frame" x="-100" y="-100" width="143" height="15"/>
@@ -356,19 +357,19 @@
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
             <tableHeaderView key="headerView" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28">
-                <rect key="frame" x="0.0" y="0.0" width="198" height="25"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="25"/>
                 <autoresizingMask key="autoresizingMask"/>
             </tableHeaderView>
             <point key="canvasLocation" x="139" y="154"/>
         </scrollView>
-        <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+        <scrollView wantsLayer="YES" focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10">
             <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
-            <clipView key="contentView" drawsBackground="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-dx-lwj">
-                <rect key="frame" x="1" y="1" width="198" height="398"/>
-                <autoresizingMask key="autoresizingMask"/>
+            <clipView key="contentView" wantsLayer="YES" drawsBackground="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-dx-lwj">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="32" viewBased="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13" customClass="SKTableView">
-                        <rect key="frame" x="0.0" y="0.0" width="198" height="398"/>
+                    <tableView wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="32" viewBased="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13" customClass="SKTableView">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <size key="intercellSpacing" width="3" height="2"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -387,7 +388,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-PX-WpE" customClass="SKThumbnailImageView">
-                                                <rect key="frame" x="0.0" y="-3" width="127" height="38"/>
+                                                <rect key="frame" x="0.0" y="-5" width="127" height="43"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="Io7-lH-ZCi"/>
                                                 <connections>
                                                     <binding destination="xMx-nb-bLR" name="value" keyPath="objectValue.thumbnail" id="TYj-RQ-nBe"/>
@@ -422,7 +423,7 @@
                                         <rect key="frame" x="141" y="1" width="36" height="15"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-xw-N5B">
+                                            <textField focusRingType="none" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-xw-N5B">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="15"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="dwa-9x-zmD">
                                                     <font key="font" metaFont="cellTitle"/>
@@ -478,8 +479,12 @@
             </scroller>
             <point key="canvasLocation" x="267" y="154"/>
         </scrollView>
-        <menu id="9"/>
-        <menu id="5"/>
+        <menu id="9">
+            <point key="canvasLocation" x="159" y="-127"/>
+        </menu>
+        <menu id="5">
+            <point key="canvasLocation" x="51" y="-227"/>
+        </menu>
         <objectController id="3" userLabel="OwnerController">
             <declaredKeys>
                 <string>leftSidePaneState</string>
@@ -524,7 +529,7 @@
         </arrayController>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="15" height="15"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
         <image name="NoteViewAdorn" width="128" height="128"/>
         <image name="SnapshotViewAdorn" width="128" height="128"/>
     </resources>

@@ -166,6 +166,14 @@ void SKDrawTextFieldBezel(NSRect rect, NSView *controlView) {
 extern NSArray *SKColorEffectFilters(void) {
     NSMutableArray *filters = [NSMutableArray array];
     CIFilter *filter;
+//    if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:0.625], nil]))
+//        [filters addObject:filter];
+//    if ((filter = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:@"inputRVector", [CIVector vectorWithX:1.0 Y:0.0 Z:0.0 W:0.0], @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0], @"inputBVector", [CIVector vectorWithX:0.0 Y:0.0 Z:1.0 W:0.0], @"inputAVector", [CIVector vectorWithX:0.33 Y:0.59 Z:0.11 W:1.0], @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:-1.0], nil]))
+    
+//    if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:1.6], nil]))
+//        [filters addObject:filter];
+//    if ((filter = [CIFilter filterWithName:@"CIVibrance" keysAndValues:@"inputAmount", [NSNumber numberWithDouble:1], nil]))
+//        [filters addObject:filter];
     CGFloat sepia = [[NSUserDefaults standardUserDefaults] doubleForKey:SKSepiaToneKey];
     if (sepia > 0.0) {
         if ((filter = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:@"inputIntensity", [NSNumber numberWithDouble:fmin(sepia, 1.0)], nil]))
@@ -181,12 +189,23 @@ extern NSArray *SKColorEffectFilters(void) {
         CGFloat f = [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] ? 1.9337 : 1.8972;
         // This is like CIColorInvert + CIHueAdjust, modified to map white to dark gray rather than black
         // Inverts a linear luminocity with weights from the CIE standards
-        // see https://wiki.preterhuman.net/Matrix_Operations_for_Image_Processingand https://beesbuzz.biz/code/16-hsv-color-transforms
-        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:0.625], nil]))
+        // see https://wiki.preterhuman.net/Matrix_Operations_for_Image_Processing and https://beesbuzz.biz/code/16-hsv-color-transforms
+        if ((filter = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:@"inputRVector", [CIVector vectorWithX:1.0 Y:0.0 Z:0.0 W:0.0], @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0], @"inputBVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.1 W:0.0], @"inputAVector", [CIVector vectorWithX:-1.0 Y:-1.0 Z:-1.0 W:1.0], @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:0.0], nil]))
+            [filters addObject:filter];
+        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:0.5], nil]))
             [filters addObject:filter];
         if ((filter = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:@"inputRVector", [CIVector vectorWithX:1.0-LR*f Y:-LG*f Z:-LB*f W:0.0], @"inputGVector", [CIVector vectorWithX:-LR*f Y:1.0-LG*f Z:-LB*f W:0.0], @"inputBVector", [CIVector vectorWithX:-LR*f Y:-LG*f Z:1.0-LB*f W:0.0], @"inputAVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:1.0], @"inputBiasVector", [CIVector vectorWithX:1.0 Y:1.0 Z:1.0 W:0.0], nil]))
             [filters addObject:filter];
-        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:1.6], nil]))
+        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:2.0], nil]))
+            [filters addObject:filter];
+    } else {
+        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:0.8], nil]))
+            [filters addObject:filter];
+        if ((filter = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:@"inputRVector", [CIVector vectorWithX:1.0 Y:0.0 Z:0.0 W:0.0], @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0], @"inputBVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.1 W:0.0], @"inputAVector", [CIVector vectorWithX:-1.0 Y:-1.0 Z:-1.0 W:1.0], @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:0.0], nil]))
+            [filters addObject:filter];
+        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:0.3125], nil]))
+            [filters addObject:filter];
+        if ((filter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:@"inputPower", [NSNumber numberWithDouble:8], nil]))
             [filters addObject:filter];
     }
     return filters;

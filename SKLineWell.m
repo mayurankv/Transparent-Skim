@@ -80,7 +80,7 @@ NSString *SKLineWellEndLineStyleKey = @"endLineStyle";
 - (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        lineWidth = 1.0;
+        lineWidth = 0.0;
         style = kPDFBorderStyleSolid;
         dashPattern = nil;
         startLineStyle = kPDFLineStyleNone;

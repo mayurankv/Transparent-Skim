@@ -118,29 +118,31 @@
     switch (style) {
         case SKTopBarStyleDefault:
             if (@available(macOS 11.0, *))
-                [blurView setMaterial:NSVisualEffectMaterialTitlebar];
+                [blurView setMaterial:NSVisualEffectMaterialSidebar];
             else if (@available(macOS 10.14, *))
-                [blurView setMaterial:NSVisualEffectMaterialHeaderView];
+                [blurView setMaterial:NSVisualEffectMaterialSidebar];
             else
                 [blurView setMaterial:NSVisualEffectMaterialTitlebar];
             [blurView setBlendingMode:NSVisualEffectBlendingModeWithinWindow];
+            [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:1.0 alpha:0]];
             if (@available(macOS 10.14, *)) {
                 sepColor = [NSColor separatorColor];
             } else{
-                [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:1.0 alpha:0.25]];
-                sepColor = [NSColor colorWithGenericGamma22White:0.8 alpha:0.35];
+                [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:1.0 alpha:0]];
+                sepColor = [NSColor colorWithGenericGamma22White:0.8 alpha:0];
             }
             break;
         case SKTopBarStylePDFControlBackground:
             if (@available(macOS 11.0, *))
-                [blurView setMaterial:NSVisualEffectMaterialTitlebar];
+                [blurView setMaterial:NSVisualEffectMaterialSidebar];
             else if (@available(macOS 10.14, *))
-                [blurView setMaterial:NSVisualEffectMaterialHeaderView];
+                [blurView setMaterial:NSVisualEffectMaterialSidebar];
             else
                 [blurView setMaterial:NSVisualEffectMaterialLight];
             [blurView setBlendingMode:NSVisualEffectBlendingModeWithinWindow];
+            [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:1.0 alpha:0]];
             if (@available(macOS 10.14, *)) {} else {
-                [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:0.98 alpha:0.5]];
+                [backgroundView setBackgroundColor:[NSColor colorWithGenericGamma22White:0.98 alpha:0]];
             }
             break;
         case SKTopBarStylePresentation:

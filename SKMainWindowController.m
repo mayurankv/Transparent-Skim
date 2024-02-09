@@ -344,6 +344,14 @@ static char SKMainWindowContentLayoutObservationContext;
     // for animations
     [[window contentView] setWantsLayer:YES];
     
+    [window setTitleVisibility:NSWindowTitleHidden];
+    [window setStyleMask:[window styleMask] | NSWindowStyleMaskResizable];
+    [window setTitlebarAppearsTransparent:YES];
+    [window setStyleMask:[window styleMask] | NSWindowStyleMaskBorderless];
+//    [window setStyleMask:[window styleMask] | ~NSWindowStyleMaskTitled];
+//    [window setStyleMask:window.styleMask & ~(NSWindowStyleMaskTitled)];
+//    [window setStyleMask:window.styleMask & ~NSWindowStyleMaskTitled];
+    
     if (mwcFlags.fullSizeContent) {
         titleBarHeight = NSHeight([window frame]) - NSHeight([window contentLayoutRect]);
         [leftSideController setTopInset:titleBarHeight];
@@ -432,18 +440,10 @@ static char SKMainWindowContentLayoutObservationContext;
         if ([[pdfView document] isLocked]) {
             [savedNormalSetup setObject:[NSNumber numberWithUnsignedInteger:pageIndex] forKey:PAGEINDEX_KEY];
         } else if ([[pdfView currentPage] pageIndex] != pageIndex || pointString) {
-            NSPoint point = pointString ? NSPointFromString(pointString) : SKUnspecifiedPoint;
-            [pdfView goToPageAtIndex:pageIndex point:point];
+            [pdfView goToPageAtIndex:pageIndex point:pointString ? NSPointFromString(pointString) : SKUnspecifiedPoint];
             [lastViewedPages setCount:0];
             [lastViewedPages addPointer:(void *)pageIndex];
             [pdfView resetHistory];
-            if (@available(macOS 12.0, *)) {
-                if (([pdfView displayMode] & kPDFDisplaySinglePageContinuous)) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [pdfView scrollToPageAtIndex:pageIndex point:point];
-                    });
-                }
-            }
         }
     }
     

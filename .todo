@@ -1,0 +1,26 @@
+
+Todo:
+	☐ Improvements
+		☐ Better colour handling
+			☐ Better transparency creation
+				☐ `CIColorMap`
+			☐ Better inversion
+				☐ Keep images same colours
+		☐ Make transparency more aesthetic (more transparent, less blur)
+			☐ https://gist.github.com/avaidyam/d3c76df710651edbf4da56bad3fea9d2
+		☐ Have more rounded borders
+		☐ Properly remove title bar
+
+	☐ Refactor
+		☐ Make sidebars come out of main window rather than into main window
+		☐ Make status bar better
+		☐ Make Tool bar only on main window, not side windows
+		☐ Remove sidebar borders
+		☐ Make sidebar toolbars more aesthetic
+
+	☐ Settings
+		☐ Convert my changes into proper settings
+
+	☐ Version Control
+		☐ Store changes relative to remote repository
+		☐ Store on github
