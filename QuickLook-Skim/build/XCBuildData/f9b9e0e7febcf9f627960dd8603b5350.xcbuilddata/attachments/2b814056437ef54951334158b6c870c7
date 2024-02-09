@@ -1,0 +1,7 @@
+#!/bin/sh
+// the assets compiler ignores the build setting to not include standalone icons
+
+echo "*** stripping document background icons ***"
+
+find "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}" -type file -name "*DocumentBackground.icns" -delete
+

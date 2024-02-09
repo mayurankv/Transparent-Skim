@@ -1,0 +1,34 @@
+Target dependency graph (17 targets)
+Target 'Skim' in project 'Skim'
+➜ Explicit dependency on target 'SkimNotes' in project 'SkimNotes'
+➜ Explicit dependency on target 'Sparkle' in project 'Sparkle'
+➜ Explicit dependency on target 'SkimTransitions' in project 'SkimTransitions'
+➜ Explicit dependency on target 'SkimImporter' in project 'SkimImporter'
+➜ Explicit dependency on target 'Quicklook-Skim' in project 'QuickLook-Skim'
+➜ Explicit dependency on target 'SkimNotes Tool' in project 'SkimNotes'
+➜ Explicit dependency on target 'SkimPDF Tool' in project 'SkimNotes'
+Target 'SkimPDF Tool' in project 'SkimNotes' (no dependencies)
+Target 'SkimNotes Tool' in project 'SkimNotes' (no dependencies)
+Target 'Quicklook-Skim' in project 'QuickLook-Skim' (no dependencies)
+Target 'SkimImporter' in project 'SkimImporter'
+➜ Explicit dependency on target 'SkimNotesBase' in project 'SkimNotes'
+Target 'SkimNotesBase' in project 'SkimNotes' (no dependencies)
+Target 'SkimTransitions' in project 'SkimTransitions' (no dependencies)
+Target 'Sparkle' in project 'Sparkle'
+➜ Explicit dependency on target 'SparkleDownloader' in project 'Sparkle'
+➜ Explicit dependency on target 'SparkleInstallerConnection' in project 'Sparkle'
+➜ Explicit dependency on target 'SparkleInstallerLauncher' in project 'Sparkle'
+➜ Explicit dependency on target 'SparkleInstallerStatus' in project 'Sparkle'
+➜ Explicit dependency on target 'Autoupdate' in project 'Sparkle'
+➜ Explicit dependency on target 'Installer Progress' in project 'Sparkle'
+Target 'Installer Progress' in project 'Sparkle' (no dependencies)
+Target 'Autoupdate' in project 'Sparkle'
+➜ Explicit dependency on target 'bsdiff' in project 'Sparkle'
+➜ Explicit dependency on target 'ed25519' in project 'Sparkle'
+Target 'ed25519' in project 'Sparkle' (no dependencies)
+Target 'bsdiff' in project 'Sparkle' (no dependencies)
+Target 'SparkleInstallerStatus' in project 'Sparkle' (no dependencies)
+Target 'SparkleInstallerLauncher' in project 'Sparkle' (no dependencies)
+Target 'SparkleInstallerConnection' in project 'Sparkle' (no dependencies)
+Target 'SparkleDownloader' in project 'Sparkle' (no dependencies)
+Target 'SkimNotes' in project 'SkimNotes' (no dependencies)

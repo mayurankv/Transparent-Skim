@@ -1,0 +1,36 @@
+#!/bin/sh
+HELP_NAME="SkimHelp"
+
+INPUT="skim.texi"
+SOURCE="${SOURCE_ROOT}/Skim.help/Contents/Resources"
+TOOLS="${SOURCE_ROOT}/${HELP_NAME}"
+PREFIX="${HELP_NAME}"
+TARGET="${DERIVED_FILE_DIR}/${HELP_NAME}"
+
+cd "${SOURCE}"
+
+[ -d "${TARGET}" ] || /bin/mkdir -p "${TARGET}";
+
+for LOC_DIR in *.lproj; do
+	LOC_TARGET="${TARGET}/${LOC_DIR}";
+	[ -d "${LOC_TARGET}" ] && /bin/rm -rf "${LOC_TARGET}"/* || /bin/mkdir -p "${LOC_TARGET}";
+	
+	echo "*** Creating help files in ${LOC_TARGET} ***";
+	"${TOOLS}/texi2html" "${SOURCE}/${LOC_DIR}/${INPUT}" --init-file="${TOOLS}/applehelp.init" --prefix="${PREFIX}" --output="${LOC_TARGET}" --split=node --nonumber;
+	
+	echo "*** Indexing Help in ${LOC_TARGET} ***"
+	if [ "${LOC_DIR}" = "fr.lproj" ]; then STOPWORDS="fr";
+	elif [ "${LOC_DIR}" = "de.lproj" ]; then STOPWORDS="de";
+	elif [ "${LOC_DIR}" = "Hungarian.lproj" ]; then STOPWORDS="hu";
+	elif [ "${LOC_DIR}" = "it.lproj" ]; then STOPWORDS="it";
+	elif [ "${LOC_DIR}" = "es.lproj" ]; then STOPWORDS="es";
+	elif [ "${LOC_DIR}" = "Swedish.lproj" ]; then STOPWORDS="sv";
+	elif [ "${LOC_DIR}" = "nl.lproj" ]; then STOPWORDS="${TOOLS}/stopwords-nl.txt";
+	else STOPWORDS="en";
+	fi;
+	if [ "${LOC_DIR}" = "ja.lproj" -o "${LOC_DIR}" = "zh_CN.lproj" -o "${LOC_DIR}" = "zh_TW.lproj" ]; then MINTERMLENGTH=1;
+	else MINTERMLENGTH=3;
+	fi;
+	/usr/bin/hiutil -Cagf "${LOC_TARGET}/${PREFIX}.helpindex" -s "${STOPWORDS}" -m "${MINTERMLENGTH}" "${LOC_TARGET}";
+done;
+

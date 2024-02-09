@@ -1,0 +1,6 @@
+framework module SkimNotesBase {
+  umbrella header "SkimNotesBase.h"
+  export *
+
+  module * { export * }
+}

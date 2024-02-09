@@ -1,0 +1,3 @@
+#!/bin/sh
+"$SRCROOT/Configurations/strip-framework.sh"
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "${BUILD_STYLE}" = "Debug" -o "${CONFIGURATION}" = "Debug" ]; then
+exit 0
+fi
+
+echo "*** stripping header files from frameworks ***"
+find "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" -type file -name "*.h" -delete
+find "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}" \( -type d -or -type l \) -name Headers -delete
+

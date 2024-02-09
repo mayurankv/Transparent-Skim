@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Run the ibtool build phase
+# This takes a while to generate, so it's not worth
+# the wait for development builds.
+#
+if [ "${BUILD_STYLE}" = "Debug" -o "${CONFIGURATION}" = "Debug" ]; then
+exit 0
+fi
+#
+# Run the ibtool build phase
+#
+cd "${SOURCE_ROOT}/Base.lproj"
+
+for XIB_FILE in *.xib; do
+    STRINGS_FILE="../en.lproj/${XIB_FILE%.xib}.strings"
+    /usr/bin/ibtool --export-strings-file "${STRINGS_FILE}" "${XIB_FILE}"
+done;
+

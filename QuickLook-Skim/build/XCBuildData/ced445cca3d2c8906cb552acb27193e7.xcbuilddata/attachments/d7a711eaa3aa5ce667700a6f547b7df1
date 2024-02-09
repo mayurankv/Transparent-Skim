@@ -1,0 +1,21 @@
+#!/bin/sh
+HELP_NAME="SkimHelp"
+
+SOURCE="${DERIVED_FILE_DIR}/${HELP_NAME}";
+TARGET="${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Skim.help/Contents/Resources";
+DEST="${HELP_NAME}";
+
+cd "${TARGET}";
+
+for LOC_DIR in *.lproj; do
+	LOC_SOURCE="${SOURCE}/${LOC_DIR}";
+	LOC_TARGET="${TARGET}/${LOC_DIR}";
+	if [ -d "${LOC_SOURCE}" ]; then
+		echo "*** Copying help files from ${LOC_SOURCE} to ${LOC_TARGET} ***";
+		/bin/rm -rf "${LOC_TARGET}/"*.html;
+		/bin/cp -Rf "${LOC_SOURCE}/"*.html "${LOC_TARGET}";
+		[ -f "${LOC_SOURCE}/${HELP_NAME}.helpindex" ] && \
+			/bin/cp -f "${LOC_SOURCE}/${HELP_NAME}.helpindex" "${LOC_TARGET}";
+	fi;
+done;
+

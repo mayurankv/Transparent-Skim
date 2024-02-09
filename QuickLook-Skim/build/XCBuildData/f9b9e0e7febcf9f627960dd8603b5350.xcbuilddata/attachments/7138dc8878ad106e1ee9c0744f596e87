@@ -1,0 +1,5 @@
+ extern const unsigned char SkimVersionString[];
+ extern const double SkimVersionNumber;
+
+ const unsigned char SkimVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Skim  PROJECT:Skim-152" "\n";
+ const double SkimVersionNumber __attribute__ ((used)) = (double)152.;
