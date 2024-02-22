@@ -10,6 +10,7 @@ Todo:
 			☐ https://gist.github.com/avaidyam/d3c76df710651edbf4da56bad3fea9d2
 		☐ Have more rounded borders
 		☐ Properly remove title bar
+		☐ Currently causes graphs from maths notes i.e. ASF and ISF to disappear - why is this?
 
 	☐ Refactor
 		☐ Make sidebars come out of main window rather than into main window
